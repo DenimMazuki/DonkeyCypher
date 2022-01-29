@@ -153,7 +153,7 @@
                     errorText.style.display = 'none';
                     try {
                         var decrypted = CryptoJS.AES.decrypt(hash.value, salt.value);
-                        notifyText.innerHTML = "Use this: " + decrypted.toString(CryptoJS.enc.Utf8);
+                        notifyText.innerHTML = "Use tiny: " + decrypted.toString(CryptoJS.enc.Utf8);
                         notifyText.style.display = 'block';
                     } catch (ex) {
                         errorText.style.display = 'block';
