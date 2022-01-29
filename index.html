@@ -110,75 +110,14 @@
                 <img src="DonKeys.png" width="200">
                 <div id="mainDialog">
                     <div id="passArea">
-                        <p id="passwordPrompt">Don-KEY</p>
-                        <input id="salt" type="text" name="salt" autofocus>
-                        <p id="passwordPrompt">Hash</p>
-                        <input id="hash" type="text" name="hash">
-                        <div>
-                            <span id="messageWrapper">
-                                <span id="success" class="notifyText">Success!</span>
-                                &nbsp;
-                                <span id="error" class="error">Error!</span>
-                            </span>
-                            <button id="submitPass" type="button">Submit</button>
-                            <div style="clear: both;"></div>
-                        </div>
+                        <p id="passwordPrompt">TEMPORARILY OUT TO PARTY. COME HANG OUT AT THE BARN</p>
                     </div>
                 </div>
-                <div id="debugFrame1"></div>
-                <div id="debugFrame2"></div>
-                <div id="debugFrame3"></div>
             </div>
+            <div id="debugFrame1"></div>
+            <div id="debugFrame2"></div>
+            <div id="debugFrame3"></div>
         </div>
-
-        <script src="https://cdnjs.cloudflare.com/ajax/libs/crypto-js/3.1.2/rollups/aes.js"
-            integrity="sha256-/H4YS+7aYb9kJ5OKhFYPUjSJdrtV6AeyJOtTkw6X72o=" crossorigin="anonymous"></script>
-        <script>
-            (function () {
-
-                var debugFrame1 = document.getElementById('debugFrame1');
-                var debugFrame2 = document.getElementById('debugFrame2');
-                var debugFrame3 = document.getElementById('debugFrame3');
-                var notifyText = document.getElementById('success');
-                var errorText = document.getElementById('error');
-                var submitPass = document.getElementById('submitPass');
-                var salt = document.getElementById('salt');
-                var hash = document.getElementById('hash');
-
-                function decryptMsg(salt, hash) {
-                    //debugFrame1.innerHTML = salt.value;
-                    //debugFrame2.innerHTML = hash.value;
-
-                    notifyText.style.display = 'none';
-                    errorText.style.display = 'none';
-                    try {
-                        var decrypted = CryptoJS.AES.decrypt(hash.value, salt.value);
-                        notifyText.innerHTML = "Use tiny: " + decrypted.toString(CryptoJS.enc.Utf8);
-                        notifyText.style.display = 'block';
-                    } catch (ex) {
-                        errorText.style.display = 'block';
-                    }
-                }
-
-                //debugFrame3.innerHTML = CryptoJS.AES.encrypt("Hashthingy", "9dY62nBa0"); U2FsdGVkX1/IOu5TRmylXE9ZUA+fI/FIbS96dgAAPJw=
-                // Don't share the answer anywhere.
-                // WL will be revoked when cheating. 
-
-                async function doSubmit(evt) {
-                    decryptMsg(salt, hash);
-                }
-
-                submitPass.onclick = doSubmit;
-                hash.onkeypress = function (e) {
-                    if (!e) e = window.event;
-                    var keyCode = e.keyCode || e.which;
-                    if (keyCode == '13') {
-                        // Enter pressed
-                        doSubmit();
-                        return false;
-                    }
-                }
-
-            })();
-
-        </script>
+        </div>
+    </body>
+</body>
